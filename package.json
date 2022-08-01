@@ -1,0 +1,27 @@
+{
+  "name": "eco-components",
+  "version": "1.0.0",
+  "description": "eco-component-foldor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LikeTheDoge/eco-components.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LikeTheDoge/eco-components/issues"
+  },
+  "homepage": "https://github.com/LikeTheDoge/eco-components#readme",
+  "dependencies": {
+    "lerna": "^4.0.0",
+    "togii-cli-vue2-component": "^0.0.11"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
