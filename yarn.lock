@@ -10968,20 +10968,6 @@ togii-cli-package@^0.0.15:
     mri "^1.2.0"
     rimraf "^3.0.2"
 
-togii-cli-vue2-component@^0.0.15:
-  version "0.0.15"
-  resolved "http://39.101.133.158:4873/togii-cli-vue2-component/-/togii-cli-vue2-component-0.0.15.tgz"
-  integrity sha512-cbfwmo67vC3HZTj+qgYXLBSMBifbDyfuy577VSSRdCYA2qiQ4LYm27J3Re4eCPGsMvexxJ/ppe7wZyUhS9ZJow==
-  dependencies:
-    "@types/fs-extra" "^9.0.13"
-    "@types/markdown-it" "^12.2.3"
-    "@types/rimraf" "^3.0.2"
-    fs-extra "^10.1.0"
-    gray-matter "^4.0.3"
-    markdown-it "^13.0.1"
-    mri "^1.2.0"
-    rimraf "^3.0.2"
-
 togii-static@^0.0.13:
   version "0.0.13"
   resolved "http://39.101.133.158:4873/togii-static/-/togii-static-0.0.13.tgz"
