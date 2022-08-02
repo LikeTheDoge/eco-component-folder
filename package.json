@@ -21,7 +21,7 @@
   "homepage": "https://github.com/LikeTheDoge/eco-components#readme",
   "dependencies": {
     "lerna": "^4.0.0",
-    "togii-cli-package": "^0.0.15"
+    "togii-cli-package": "^0.0.16"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.8",
