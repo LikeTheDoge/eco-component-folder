@@ -8,7 +8,7 @@ WORKDIR /app
 RUN npm config set registry http://39.101.133.158:4873
 RUN yarn config set registry http://39.101.133.158:4873
 # 安装依赖
-RUN yarn install -W
+RUN yarn install
 # lerna 依赖
 RUN npx lerna bootstrap
 # package 构建
