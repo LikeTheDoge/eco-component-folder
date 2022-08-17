@@ -10968,10 +10968,10 @@ togii-cli-package@^0.0.18:
     mri "^1.2.0"
     rimraf "^3.0.2"
 
-togii-static@^0.0.13:
-  version "0.0.13"
-  resolved "http://39.101.133.158:4873/togii-static/-/togii-static-0.0.13.tgz"
-  integrity sha512-y7womlFZcBiDJLobuBTOXkMh7oIIiWY6QKWR2WTJPwTJG6ds36qW0e+FekNFjKnkt+ZWJVkxmmx+X/m2XlyQGQ==
+togii-static@^0.0.18:
+  version "0.0.18"
+  resolved "http://39.101.133.158:4873/togii-static/-/togii-static-0.0.18.tgz#f3160404a1a9e7aef1af34c977cce1e6aa3f83c1"
+  integrity sha512-a5qBX6/RZdE1hdD7Cu+niL8v9ucm4FCDpmc/DeSwcnXSNYWhaF+qQ/8DU/vSFXdJIKR8qUWwLTqNQr3ax7KSFw==
   dependencies:
     "@types/koa" "^2.13.5"
     "@types/koa-static" "^4.0.2"
