@@ -10954,10 +10954,10 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-togii-cli-package@^0.0.16:
-  version "0.0.16"
-  resolved "http://39.101.133.158:4873/togii-cli-package/-/togii-cli-package-0.0.16.tgz#35c5c5cdaa6c49d4db75c7a04b29e2edb1985008"
-  integrity sha512-Pw+/5JuF3H07WblxHYbu5ScDy4ZU73CfUH4qWJJL6Jpr0/rLSVakDAV1OAHamnhhsIYQ2QP9LK+0JiBqvu0IkQ==
+togii-cli-package@^0.0.18:
+  version "0.0.18"
+  resolved "http://39.101.133.158:4873/togii-cli-package/-/togii-cli-package-0.0.18.tgz#dc8d9930d4492605841141bdc7f4be831828303d"
+  integrity sha512-ZwH0DooeY53QOh+ACkeWybB8ouJzOg04rzEFEtrrJwcr/spmcOzH0jeCtqBZZaw71gzQfiHuqav5AmemxLkbKw==
   dependencies:
     "@types/fs-extra" "^9.0.13"
     "@types/markdown-it" "^12.2.3"
