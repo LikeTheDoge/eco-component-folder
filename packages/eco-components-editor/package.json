@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "togii-cli-vue2-component": "^0.0.19"
+    "togii-cli-vue2-component": "^0.0.20"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.8",
