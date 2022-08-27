@@ -1,6 +1,6 @@
 <template>
     <svg
-        class="eco-icon"
+        class="e-icon"
         :style="{fontSize:`${typeof size === 'number'?size+'px':size }`,color:color}"
         aria-hidden="true"
     >
@@ -9,12 +9,8 @@
 </template>
 
 <script>
-import * as icon from "./icon";
-
-console.log(icon);
-
 export default {
-    name: "EcoIcon",
+    name: "EIcon",
     props: {
         family: {
             default: "icon",
@@ -33,7 +29,7 @@ export default {
 </script>
 
 <style>
-.eco-icon {
+.e-icon {
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;

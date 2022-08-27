@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-env": "^7.18.10",
     "togii-cli-vue2-component": "^0.0.20"
   },
   "devDependencies": {

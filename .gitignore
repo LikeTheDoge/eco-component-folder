@@ -106,5 +106,6 @@ dist
 lib/
 build/
 __doc_source__/
+__dev_source__/
 public/
 !.docs/public/
