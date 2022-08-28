@@ -1,34 +1,15 @@
 <template>
-    <label
-        :style="{width:btnWidth}"
-        :class="{'btn-block':true,'inline':inline !== undefined, 'e-upload-btn':true,'disabled':loading}"
-    >
-        <slot
-            v-if="showIcon"
-            :loading="loading"
-            name="icon"
-        >
-            <e-icon
-                v-if="!loading"
-                family="i_base"
-                name="upload"
-            ></e-icon>
-            <e-icon
-                v-else
-                class="loading-icon"
-                family="i_base"
-                name="cycle"
-            ></e-icon>
+    <label :style="{ width: btnWidth }"
+        :class="{ 'btn-block': true, 'inline': inline !== undefined, 'e-upload-btn': true, 'disabled': loading }">
+        <slot v-if="showIcon" :loading="loading" name="icon">
+            <e-icon v-if="!loading" family="i_base" name="upload"></e-icon>
+            <e-icon v-else class="loading-icon" family="i_base" name="cycle"></e-icon>
         </slot>
 
         <slot :loading="loading">
-            {{loading?loadingText:text}}
+            {{ loading ? loadingText : text }}
         </slot>
-        <input
-            :disabled="loading"
-            type="file"
-            @change="fileChange"
-        >
+        <input :disabled="loading" type="file" @change="fileChange">
     </label>
 </template>
 
@@ -48,12 +29,12 @@ export default {
         width: {
             default: null,
         },
-        inline:{
+        inline: {
             default: undefined,
         },
         upload: {
             default: () => () => new Promise((res) => {
-                    setTimeout(res, 3000);
+                setTimeout(res, 3000);
             }),
         },
     },
@@ -113,13 +94,14 @@ export default {
     padding: 5px 16px;
 }
 
-.btn-block.inline{
+.btn-block.inline {
     display: inline-block;
 }
 
 .btn-block:hover {
     background-color: var(--action-color-hover);
 }
+
 .btn-block.disabled {
     cursor: not-allowed;
     background-color: var(--action-color-disable) !important;
@@ -128,6 +110,7 @@ export default {
 .btn-block:active {
     background-color: var(--action-color-active);
 }
+
 .loading-icon {
     -webkit-animation: spin 1s linear 1s 5 alternate;
     animation: spin 1s linear infinite;
@@ -137,6 +120,7 @@ export default {
     from {
         -webkit-transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(-360deg);
     }
@@ -146,8 +130,38 @@ export default {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(-360deg);
+    }
+}
+</style>
+
+
+
+<style lang="scss">
+
+:root{
+    --e-btn-block-line-height :32px
+    --e-btn-block-margin : 4px
+}
+
+
+.e-btn {
+
+
+    &.link {
+
+        &.disabled {}
+    }
+
+    &.block {
+
+        &.disabled {}
+
+        &.inline {}
+
+        &.ghost {}
     }
 }
 </style>
