@@ -16,8 +16,8 @@ module.exports = {
     // 修改 src 为 examples
     pages: {
         index: {
-            entry: '__dev_source__/src/main.js',
-            template: 'public/index.html',
+            entry: '__doc_source__/src/main.js',
+            template: 'html/doc.html',
             filename: 'index.html',
         },
     },
@@ -46,12 +46,12 @@ module.exports = {
 
     chainWebpack: config => {
 
+
         config.module
             .rule('js')
             .include.add(path.resolve(__dirname, '/packages')).end()
             .use('babel')
             .loader('babel-loader')
-
 
         const svgRule = config.module.rule('svg');
 
@@ -70,6 +70,14 @@ module.exports = {
             .tap(options => Object.assign(options, {
                 limit: 102400,
             }));
+
+
+        // config.module.rule('eslint').use('eslint-loader')
+        //   .loader('eslint-loader')
+        //   .tap(opt => {
+        //     opt.failOnError = true;
+        //     return opt;
+        //   });
     },
     devServer: {
         port: 8001,

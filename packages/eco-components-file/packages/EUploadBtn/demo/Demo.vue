@@ -3,18 +3,15 @@
         两种不同的方式修改文本<br />
         <e-upload-btn
             style="margin-right:8px"
-            inline
             text="上传用户头像"
-            :upload="upload"
+            :uploadFile="upload"
             loading-text="上传图片中..."
         >
         </e-upload-btn>
         <e-upload-btn
-            inline
             :upload="upload"
-            :width="'auto'"
         >
-            <template slot-scope="{loading}">
+            <template  #text="{loading}">
                 {{
                     loading?'上传图片中...':'上传用户头像'
                 }}
@@ -25,8 +22,7 @@
         隐藏 icon<br />
         <e-upload-btn
             inline
-            :upload="upload"
-            :width="'auto'"
+            :uploadFile="upload"
             :show-icon="false"
         ></e-upload-btn>
         
@@ -34,9 +30,7 @@
 
         自定义icon<br />
         <e-upload-btn
-            inline
-            :upload="upload"
-            :width="'auto'"
+            :uploadFile="upload"
         >
 
         
@@ -57,6 +51,31 @@
             </template>
         </e-upload-btn>
 
+        <div></div>
+        禁用
+        <br />
+        <e-upload-btn
+            disabled
+            :uploadFile="upload"
+        >
+
+        
+            <template
+                #icon="{loading}"
+            >
+                <e-icon
+                    v-if="!loading"
+                    family="i_base"
+                    name="cycle"
+                ></e-icon>
+                <e-icon
+                    v-else
+                    class="loading-icon"
+                    family="i_base"
+                    name="upload"
+                ></e-icon>
+            </template>
+        </e-upload-btn>
     </div>
 </template>
 

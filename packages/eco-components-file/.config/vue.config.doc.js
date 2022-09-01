@@ -17,7 +17,7 @@ module.exports = {
     pages: {
         index: {
             entry: '__doc_source__/src/main.js',
-            template: 'public/index.html',
+            template: 'html/doc.html',
             filename: 'index.html',
         },
     },
