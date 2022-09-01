@@ -19,6 +19,18 @@ subtitle: 基础上传按钮
 
 [demo](Demo)
 
+## CSS 变量
+
+
+```
+--e_upload_area-border_radius: 14px;
+--e_upload_area_place_holder-border_radius: 15px;
+--e_upload_area_place_holder-height: 320px;
+--e_upload_area_mask-bg_color: #fff;
+--e_upload_area-icon_size: 84px;
+--e_upload_area-icon_color: #cccccc;
+```
+
 ## API
 
 - < slot > default
