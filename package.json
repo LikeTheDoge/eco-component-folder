@@ -21,7 +21,7 @@
   "homepage": "https://github.com/LikeTheDoge/eco-components#readme",
   "dependencies": {
     "lerna": "^4.0.0",
-    "togii-cli-package": "^0.0.20"
+    "togii-cli-package": "^0.0.22"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.8",
@@ -41,7 +41,7 @@
     "raw-loader": "^4.0.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "togii-static": "^0.0.18",
+    "togii-static": "^0.0.22",
     "vue": "2.6.11",
     "vue-router": "^3.2.0",
     "vue-svg-loader": "^0.16.0",

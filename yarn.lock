@@ -10973,7 +10973,7 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-togii-cli-package@^0.0.20:
+togii-cli-package@^0.0.22:
   version "0.0.22"
   resolved "http://1.15.102.208:4873/togii-cli-package/-/togii-cli-package-0.0.22.tgz#57a6598ccd6b73579b43500579e46d8613fc605f"
   integrity sha512-Tyslui5N/3APUMNuzP/GVpcSRsuBlIlI8O/L3msng9fAl3BOzllzsyGw+XthrpyZ631jL4Tm3At15HSgHbnFAA==
@@ -10987,7 +10987,7 @@ togii-cli-package@^0.0.20:
     mri "^1.2.0"
     rimraf "^3.0.2"
 
-togii-static@^0.0.18:
+togii-static@^0.0.22:
   version "0.0.22"
   resolved "http://1.15.102.208:4873/togii-static/-/togii-static-0.0.22.tgz#4884629385d191fb430ef3dc7713dc87f54d9595"
   integrity sha512-5Twu7AkW9zO7tAfjhXRNqJOc55UTKSV0fsWNJaYt3W96wczC1A/41NvhAE+P0ysJKFGKCf7vJrnZB+/k3sQ1Lg==
