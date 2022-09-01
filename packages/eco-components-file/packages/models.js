@@ -22,5 +22,5 @@ export class EFile {
 
     //     return type || 'unknown'
     // }
-    type = 'unknown'
+    // type = 'unknown'
 }
