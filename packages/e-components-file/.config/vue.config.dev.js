@@ -1,35 +1,23 @@
 const path = require('path');
-// const docsLoader = require.resolve('./plugins/docs-loader.js');
+const pkg = require('./package.json')
 
 module.exports = {
-    publicPath: '/',
-    lintOnSave: fasle,
-    configureWebpack: {
-        resolve: {
-            alias: {
-                'eco-lib-components': path.join(__dirname, './packages'),
-            },
-        },
-    },
+    publicPath: '/' + pkg.name,
+    outputDir: 'dist/' + pkg.name,
+    lintOnSave: false,
     // 修改 src 为 examples
     pages: {
-        examples: {
-            entry: 'examples/main.js',
-            template: 'public/examples.html',
-            filename: 'examples.html',
-        },
         index: {
-            entry: 'site/src/main.js',
-            template: 'public/index.html',
+            entry: '__dev_source__/src/main.js',
+            template: 'html/dev.html',
             filename: 'index.html',
         },
     },
-
     css: {
         extract: false,
         loaderOptions: {
             sass: {
-                prependData: '@import "/examples/style/variables.scss";@import "/examples/style/mixin.scss";',
+                prependData: '@import "/__doc_source__/src/style/variables.scss";@import "/__doc_source__/src/style/mixin.scss";',
             },
             less: {
                 lessOptions: {
@@ -47,19 +35,17 @@ module.exports = {
     },
     // 扩展 webpack 配置，使 packages 加入编译
     chainWebpack: config => {
+
         config.module
             .rule('js')
             .include.add(path.resolve(__dirname, '/packages')).end()
             .use('babel')
             .loader('babel-loader')
 
+
         const svgRule = config.module.rule('svg');
 
-        // 清除已有的所有 loader。
-        // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
         svgRule.uses.clear();
-
-        // 添加要替换的 loader
         svgRule
             .use('babel-loader')
             .loader('babel-loader')
@@ -74,13 +60,6 @@ module.exports = {
             .tap(options => Object.assign(options, {
                 limit: 102400,
             }));
-
-        config.module
-            .rule('md')
-            .test(/\.md$/)
-            .use('raw-loader')
-            .loader('raw-loader');
-
     },
     devServer: {
         port: 8001,

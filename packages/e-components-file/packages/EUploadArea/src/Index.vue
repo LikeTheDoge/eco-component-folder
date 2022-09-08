@@ -153,11 +153,13 @@ export default {
 <style lang="scss" scoped>
 .e-upload-area {
     --e_upload_area-border_radius: 14px;
+    --e_upload_area_place_holder-border: 3px dashed #ccc;
     --e_upload_area_place_holder-border_radius: 15px;
     --e_upload_area_place_holder-height: 320px;
     --e_upload_area_mask-bg_color: #fff;
-    --e_upload_area-icon_size: 84px;
+    --e_upload_area-icon_size: 64px;
     --e_upload_area-icon_color: #cccccc;
+
 
     // 自定义 show-tip 样式
     --e_upload_area-bg_color: none;
@@ -219,7 +221,7 @@ export default {
     }
     .place-holder-default {
         min-height: var(--e_upload_area_place_holder-height);
-        border: 1px var(--action-color) dashed;
+        border: var(--e_upload_area_place_holder-border) ;
         text-align: center;
         border-radius: var(--e_upload_area_place_holder-border_radius);
     }
@@ -239,12 +241,13 @@ export default {
         color: var(--e_upload_area-icon_color);
     }
     .default-title {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: bolder;
         color: var(--e_upload_area-icon_color);
         margin-bottom: 4px;
     }
     .default-desc {
+        font-size: 14px;
         color: var(--e_upload_area-icon_color);
     }
 
