@@ -1,57 +1,43 @@
 <template>
     <div>
+        <DemoArea title="通过点击 title 基础展开，收起">
+            <ETreeItem>
+                <template #title>
+                    标题
+                </template>
 
-        <ul>
-            <li>通过点击 title 基础展开，收起 </li>
-        </ul>
+                <template #content>
+                    <div style="background:#66ccff;height:320px"></div>
+                </template>
+            </ETreeItem>
+        </DemoArea>
 
-        <ETreeItem>
-            <template #title>
-                标题
-            </template>
+        <DemoArea title="通过点击 icon 控制展开，收起">
+            <ETreeItem toggle-point="icon">
+                <template #title>
+                    标题
+                </template>
 
-            <template #content>
-                <div style="background:#66ccff;height:320px"></div>
-            </template>
-        </ETreeItem>
-        
-        <br/>
-
-        <ul>
-            <li>通过点击 icon 控制展开，收起</li>
-        </ul>
+                <template #content>
+                    <div style="background:#66ccff;height:320px"></div>
+                </template>
+            </ETreeItem>
+        </DemoArea>
 
 
-        <ETreeItem toggle-point="icon">
-            <template #title>
-                标题
-            </template>
+        <DemoArea title="添加 loading 效果">
 
-            <template #content>
-                <div style="background:#66ccff;height:320px"></div>
-            </template>
-        </ETreeItem>
 
-        
-        <br/>
+            <ETreeItem :loaded="false" :onload="onload">
+                <template #title>
+                    标题
+                </template>
 
-        <ul>
-            <li>添加 loading 效果</li>
-        </ul>
-
-        <ETreeItem
-            :loaded="false"
-            :onload="onload"
-        >
-            <template #title>
-                标题
-            </template>
-
-            <template #content>
-                <div style="background:#66ccff;height:320px"></div>
-            </template>
-        </ETreeItem>
-
+                <template #content>
+                    <div style="background:#66ccff;height:320px"></div>
+                </template>
+            </ETreeItem>
+        </DemoArea>
     </div>
 </template>
 
@@ -98,6 +84,7 @@ export default {
         color: #fff;
     }
 }
+
 .loading-icon {
     -webkit-animation: spin 1s linear 1s 5 alternate;
     animation: spin 1s linear infinite;
@@ -107,6 +94,7 @@ export default {
     from {
         -webkit-transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(-360deg);
     }
@@ -116,6 +104,7 @@ export default {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(-360deg);
     }

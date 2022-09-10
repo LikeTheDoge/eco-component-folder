@@ -1,47 +1,30 @@
 <template>
     <div>
-        <div>
-            <h3>基础的选择</h3>
+        <DemoArea title="基础的选择">
             <EChoseLabel :chosen.sync="chosen">测试标签</EChoseLabel>
-        </div>
-        <div>
-            <h3>通过 change 事件控制</h3>
-            <EChoseLabel
-                :chosen="chosen"
-                @change="val=>chosen = val"
-            >测试标签</EChoseLabel>
-        </div>
+        </DemoArea>
 
-        <div>
-            <h3>隐藏/显示 radio</h3>
-            <button
-                class="e-btn block"
-                @click="()=>hidden=!hidden"
-            >隐藏/显示 radio</button>
-            <EChoseLabel
-                :chosen="chosen"
-                :hidden="hidden"
-                @change="val=>chosen = val"
-            >测试标签</EChoseLabel>
-        </div>
+        <DemoArea title="通过 change 事件控制">
+            <EChoseLabel :chosen="chosen" @change="val => chosen = val">测试标签</EChoseLabel>
+        </DemoArea>
+        
+        <DemoArea title="隐藏/显示 radio">
+            <button class="e-btn block" @click="() => hidden = !hidden">隐藏/显示 radio</button>
+            <EChoseLabel :chosen="chosen" :hidden="hidden" @change="val => chosen = val">测试标签</EChoseLabel>
+        </DemoArea>
 
-        <div>
-            <h3>自定义选择样式</h3>
-            <EChoseLabel
-                :chosen="chosen"
-                hidden
-                @change="val=>chosen = val"
-            >
-                <template #default="{chosen}">
-                    <div :class="{chosen,'custom-style':true}">
+        <DemoArea title="自定义选择样式">
+            <EChoseLabel :chosen="chosen" hidden @change="val => chosen = val">
+                <template #default="{ chosen }">
+                    <div :class="{ chosen, 'custom-style': true }">
                         自定义选择样式标签
                     </div>
                 </template>
             </EChoseLabel>
-        </div>
+        </DemoArea>
     </div>
 
-    
+
 </template>
 
 <script>
@@ -81,6 +64,7 @@ export default {
         color: #fff;
     }
 }
+
 .loading-icon {
     -webkit-animation: spin 1s linear 1s 5 alternate;
     animation: spin 1s linear infinite;
@@ -90,6 +74,7 @@ export default {
     from {
         -webkit-transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(-360deg);
     }
@@ -99,6 +84,7 @@ export default {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(-360deg);
     }

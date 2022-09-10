@@ -1,81 +1,41 @@
 <template>
     <div>
-        两种不同的方式修改文本<br />
-        <e-upload-btn
-            style="margin-right:8px"
-            text="上传用户头像"
-            :uploadFile="upload"
-            loading-text="上传图片中..."
-        >
-        </e-upload-btn>
-        <e-upload-btn
-            :upload="upload"
-        >
-            <template  #text="{loading}">
-                {{
-                    loading?'上传图片中...':'上传用户头像'
-                }}
-            </template>
-        </e-upload-btn>
+        <DemoArea title="通过参数修改文本">
+            <EUploadBtn style="margin-right:8px" text="上传用户头像" :uploadFile="upload" loading-text="上传图片中...">
+            </EUploadBtn>
+        </DemoArea>
 
-        <div></div>
-        隐藏 icon<br />
-        <e-upload-btn
-            inline
-            :uploadFile="upload"
-            :show-icon="false"
-        ></e-upload-btn>
-        
-        <div></div>
+        <DemoArea title="通过插槽修改文本">
+            <EUploadBtn :upload="upload">
+                <template #text="{ loading }">
+                    {{
+                            loading ? '上传图片中...' : '上传用户头像'
+                    }}
+                </template>
+            </EUploadBtn>
+        </DemoArea>
 
-        自定义icon<br />
-        <e-upload-btn
-            :uploadFile="upload"
-        >
+        <DemoArea title="隐藏 icon">
+            <EUploadBtn inline :uploadFile="upload" :show-icon="false"></EUploadBtn>
+        </DemoArea>
 
-        
-            <template
-                #icon="{loading}"
-            >
-                <e-icon
-                    v-if="!loading"
-                    family="i_base"
-                    name="cycle"
-                ></e-icon>
-                <e-icon
-                    v-else
-                    class="loading-icon"
-                    family="i_base"
-                    name="upload"
-                ></e-icon>
-            </template>
-        </e-upload-btn>
+        <DemoArea title="自定义icon">
+            <EUploadBtn :uploadFile="upload">
+                <template #icon="{ loading }">
+                    <e-icon v-if="!loading" family="i_base" name="cycle"></e-icon>
+                    <e-icon v-else class="loading-icon" family="i_base" name="upload"></e-icon>
+                </template>
+            </EUploadBtn>
+        </DemoArea>
 
-        <div></div>
-        禁用
-        <br />
-        <e-upload-btn
-            disabled
-            :uploadFile="upload"
-        >
-
-        
-            <template
-                #icon="{loading}"
-            >
-                <e-icon
-                    v-if="!loading"
-                    family="i_base"
-                    name="cycle"
-                ></e-icon>
-                <e-icon
-                    v-else
-                    class="loading-icon"
-                    family="i_base"
-                    name="upload"
-                ></e-icon>
-            </template>
-        </e-upload-btn>
+        <DemoArea title="禁用">
+            <EUploadBtn disabled :uploadFile="upload">
+                <template #icon="{ loading }">
+                    <e-icon v-if="!loading" family="i_base" name="cycle"></e-icon>
+                    <e-icon v-else class="loading-icon" family="i_base" name="upload"></e-icon>
+                </template>
+            </EUploadBtn>
+        </DemoArea>
     </div>
 </template>
 
@@ -110,6 +70,7 @@ export default {
     from {
         -webkit-transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(-360deg);
     }
@@ -119,6 +80,7 @@ export default {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(-360deg);
     }
