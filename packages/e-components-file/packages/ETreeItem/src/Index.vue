@@ -7,12 +7,12 @@
 
         <div
             class="e-tree-item_title"
-            @click="()=>togglePoint==='title'?toggle():'' "
+            @click="(e)=>togglePoint==='title'?toggle(e):'' "
         >
 
             <div
                 class="toggle-icon"
-                @click="()=>togglePoint==='icon'?toggle():'' "
+                @click="(e)=>togglePoint==='icon'?toggle(e):'' "
             >
                 <e-icon
                     family="i_base"
@@ -22,7 +22,6 @@
 
             <div
                 class="loading-icon"
-                @click="()=>togglePoint==='icon'?toggle():'' "
             >
                 <e-icon
                     family="i_base"
@@ -105,7 +104,8 @@ export default {
             this.$emit("update:chosen", value);
             this.$emit("change", value);
         },
-        toggle() {
+        toggle(i) {
+            console.log(i)
             if (this.status === "loading") {
                 return;
             }
@@ -166,39 +166,38 @@ export default {
     }
     .e-tree-item_children {
         transition: all 0.4s cubic-bezier(0.17, 0.67, 0.36, 0.99);
-        background: #ccc;
     }
 
     &:not(.loading) {
-        .loading-icon {
+        >.e-tree-item_title .loading-icon {
             width: 0px;
         }
-        .toggle-icon {
+        >.e-tree-item_title .toggle-icon {
             width: var(--e_tree_item_icon-size);
         }
     }
 
     &.loading {
-        .loading-icon {
+        >.e-tree-item_title .loading-icon {
             width: var(--e_tree_item_icon-size);
         }
-        .toggle-icon {
+        >.e-tree-item_title .toggle-icon {
             width: 0px;
         }
     }
 
     &:not(.open) {
-        .e-tree-item_children {
+        > .e-tree-item_children {
             height: 0;
             overflow: hidden;
         }
     }
 
     &.open {
-        .toggle-icon {
+       >.e-tree-item_title .toggle-icon {
             transform: rotate(90deg);
         }
-        .e-tree-item_children {
+       > .e-tree-item_children {
             height: auto;
             overflow: hidden;
         }
