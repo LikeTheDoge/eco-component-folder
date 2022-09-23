@@ -1,14 +1,18 @@
 ---
-title: ETree
-subtitle: 树型组件
+title: ETreeItem
+subtitle: 树节点
 ---
 
-自定义的树，需要全局安装 EIcon ETreeItem
+自定义的树节点，需要全局安装 EIcon
 
 
 ## 主要功能
 
-- 根据数据结构，递归生成 ETreeItem 节点
+- 实现 title 和子节点区域的插槽展示
+
+- 子节点区域的展开和收起，添加动画，支持动态长度
+
+- 添加 loading 效果，为 lazyload 树做基础
 
   
 ## Demo
@@ -23,44 +27,26 @@ subtitle: 树型组件
 
 点击触发区域
 
-- < prop > treeData
-
-`<Node> Node[] = []`
-
-根节点数组
-
 - < prop > loaded
 
-`(node:Node) => boolean = ()=> true`
+`boolean = true`
 
-当前节点是否加载完成，控制展开的时候是否触发加载函数
+子节点是否加载完成，控制展开的时候是否触发加载函数
 
-- < prop > nodeId
+- < prop > onload
 
-`(node:Node) => string =  (node) => node.nodeId`
+`()=> Promise<void> = ()=>{}`
 
-获取当前节点的 id ，用于 v-for 的 key 字段
-
-- < prop > isLeaf
-
-`(node:Node) => boolean =  (node) => !node.children`
-
-判断当前节点是否为叶子节点
-
-- < prop > children
-
-`(node:Node) => Node[]|void =  (node) => node.children`
-
-当前节点为非叶子节点时候，获取其子节点数组
+当未加载时，展开触发的加载函数
 
 - < slot > title 
 
-`(node:Node) => VNode`
+`() => VNode`
 
 标题插槽
 
-- < slot > blank 
+- < slot > content 
 
-`(node:Node) => VNode`
+`() => VNode`
 
-当当前节点为非叶子节点，并且其子节点为 0 的时候，显示的提示文本
+内容插槽
