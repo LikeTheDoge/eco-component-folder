@@ -1,4 +1,3 @@
-
 import { EChoseLabel } from './EChoseLabel'
 import { ECheckLabel } from './ECheckLabel'
 
@@ -9,6 +8,7 @@ import { ETreeItem } from './ETreeItem'
 
 import { EUploadBtn } from './EUploadBtn'
 import { EUploadArea } from './EUploadArea'
+
 
 export default {
     install(vue) {
