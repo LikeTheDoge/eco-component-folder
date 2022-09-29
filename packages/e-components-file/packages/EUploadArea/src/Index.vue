@@ -3,8 +3,8 @@
         ref="cntr"
         :class="{
             'e-upload-area':true,
-            'show-tip':showTip && (!loading),
-            'show-loading':loading
+            'show-tip':showTip && (!isLoading),
+            'show-loading':isLoading
         }"
         @dragenter="openTip"
         @dragover="openTip"
@@ -12,7 +12,10 @@
     >
         <div class="e-upload-area-place-holder">
 
-            <slot :loading="loading" :showTip="showTip">
+            <slot
+                :loading="isLoading"
+                :showTip="showTip"
+            >
                 <div class="place-holder-default e-flex-center">
                     <div>
                         <div class="default-icon">
@@ -45,10 +48,14 @@
             class="hover-tip"
             :class="{
                 'hover-tip':true,
-                'show-tip':showTip && (!loading)
+                'show-tip':showTip && (!isLoading)
             }"
         >
-            <slot name="hover-tip"  :loading="loading" :showTip="showTip">
+            <slot
+                name="hover-tip"
+                :loading="isLoading"
+                :showTip="showTip"
+            >
                 <div class="hover-tip-default e-flex-center">
                     <div>
                         <div class="default-icon">
@@ -68,11 +75,15 @@
             class=""
             :class="{
                 'loading-mask':true,
-                'show-tip':showTip && (!loading),
-                'show-loading':loading
+                'show-tip':showTip && (!isLoading),
+                'show-loading':isLoading
             }"
         >
-            <slot name="loading-mask"  :loading="loading" :showTip="showTip">
+            <slot
+                name="loading-mask"
+                :loading="isLoading"
+                :showTip="showTip"
+            >
                 <div class="loading-mask-default e-flex-center">
                     <div>
                         <div class="default-icon ">
@@ -105,6 +116,9 @@ export default {
                     setTimeout(res, 3000);
                 }),
         },
+        isUploading:{
+            default: false
+        }
     },
 
     beforeMount() {
@@ -119,6 +133,12 @@ export default {
             loading: false,
             showTip: false,
         };
+    },
+
+    computed:{
+        isLoading(){
+            return this.loading || this.isUploading
+        }
     },
 
     methods: {
@@ -159,7 +179,6 @@ export default {
     --e_upload_area_mask-bg_color: #fff;
     --e_upload_area-icon_size: 64px;
     --e_upload_area-icon_color: #cccccc;
-
 
     // 自定义 show-tip 样式
     --e_upload_area-bg_color: none;
@@ -221,7 +240,7 @@ export default {
     }
     .place-holder-default {
         min-height: var(--e_upload_area_place_holder-height);
-        border: var(--e_upload_area_place_holder-border) ;
+        border: var(--e_upload_area_place_holder-border);
         text-align: center;
         border-radius: var(--e_upload_area_place_holder-border_radius);
     }

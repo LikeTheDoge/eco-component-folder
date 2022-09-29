@@ -1,14 +1,41 @@
 const path = require('path');
+const pkg = require('./package.json')
+
 module.exports = {
-    outputDir: 'lib',
-    css: {
-        extract: true,
-    },
+    publicPath: '/' + pkg.name,
+    outputDir: 'dist/' + pkg.name,
+    lintOnSave: false,
+    // 修改 src 为 examples
     pages: {
-        'EcoAdminComponents': {
-            entry: 'packages/components.js'
-        }
+        index: {
+            entry: '__doc_source__/src/main.js',
+            template: 'html/doc.html',
+            filename: 'index.html',
+        },
     },
+
+    css: {
+        extract: false,
+        loaderOptions: {
+            sass: {
+                prependData: '@import "/__doc_source__/src/style/variables.scss";@import "/__doc_source__/src/style/mixin.scss";',
+            },
+            less: {
+                lessOptions: {
+                    modifyVars: {
+                        /* less 变量覆盖，用于自定义 ant design 主题 */
+                        'primary-color': '#4771F8',
+                        'link-color': '#4771F8',
+                        'border-radius-base': '0',
+                    },
+                    javascriptEnabled: true,
+                },
+                javascriptEnabled: true,
+            },
+        },
+    },
+    // 扩展 webpack 配置，使 packages 加入编译
+
     chainWebpack: config => {
         const svgRule = config.module.rule('svg');
 
@@ -27,6 +54,14 @@ module.exports = {
             .tap(options => Object.assign(options, {
                 limit: 102400,
             }));
+
+
+        // config.module.rule('eslint').use('eslint-loader')
+        //   .loader('eslint-loader')
+        //   .tap(opt => {
+        //     opt.failOnError = true;
+        //     return opt;
+        //   });
     },
     devServer: {
         port: 8001,
