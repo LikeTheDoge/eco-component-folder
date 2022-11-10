@@ -8,12 +8,11 @@ module.exports = {
     // 修改 src 为 examples
     pages: {
         index: {
-            entry: '__doc_source__/src/main.js',
-            template: 'html/doc.html',
+            entry: '__dev_source__/src/main.js',
+            template: 'html/dev.html',
             filename: 'index.html',
         },
     },
-
     css: {
         extract: false,
         loaderOptions: {
@@ -35,8 +34,9 @@ module.exports = {
         },
     },
     // 扩展 webpack 配置，使 packages 加入编译
-
     chainWebpack: config => {
+
+
         const svgRule = config.module.rule('svg');
 
         svgRule.uses.clear();
@@ -54,14 +54,6 @@ module.exports = {
             .tap(options => Object.assign(options, {
                 limit: 102400,
             }));
-
-
-        // config.module.rule('eslint').use('eslint-loader')
-        //   .loader('eslint-loader')
-        //   .tap(opt => {
-        //     opt.failOnError = true;
-        //     return opt;
-        //   });
     },
     devServer: {
         port: 8001,

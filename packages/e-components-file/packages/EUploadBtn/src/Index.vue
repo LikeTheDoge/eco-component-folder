@@ -1,29 +1,38 @@
 <template>
-    <label :class="{ 'e-btn': true,'block':link === undefined , 'link':link !== undefined, 'e-upload-btn': true, 'disabled': (loading)||(disabled !== undefined) }">
-        <slot
-            v-if="showIcon"
-            :loading="calcuLoading"
-            name="icon"
-        >
-            <e-icon
-                v-if="!calcuLoading"
-                family="i_base"
-                name="upload"
-            ></e-icon>
-            <e-icon
-                v-else
-                class="loading-icon"
-                family="i_base"
-                name="cycle"
-            ></e-icon>
-        </slot>
+    <label :class="{ 'e-btn': eBtn,'block':link === undefined , 'link':link !== undefined, 'e-upload-btn': true, 'disabled': (loading)||(disabled !== undefined) }">
 
         <slot
-            name="text"
+            name="content"
             :loading="calcuLoading"
         >
-            {{ calcuLoading ? loadingText : text }}
+
+            <slot
+                v-if="showIcon"
+                :loading="calcuLoading"
+                name="icon"
+            >
+                <e-icon
+                    v-if="!calcuLoading"
+                    family="i_base"
+                    name="upload"
+                ></e-icon>
+                <e-icon
+                    v-else
+                    class="loading-icon"
+                    family="i_base"
+                    name="cycle"
+                ></e-icon>
+            </slot>
+
+            <slot
+                name="text"
+                :loading="calcuLoading"
+            >
+                {{ calcuLoading ? loadingText : text }}
+            </slot>
+
         </slot>
+
         <input
             :disabled="(loading)||(disabled !== undefined)"
             type="file"
@@ -36,6 +45,9 @@
 export default {
     name: "EUploadBtn",
     props: {
+        eBtn:{
+            default:true
+        },
         text: {
             default: "上传文件",
         },
